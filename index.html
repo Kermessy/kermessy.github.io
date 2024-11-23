@@ -6,13 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>welcome.</title>
 
+    <link rel="preload" as="image" href="images/cover.gif">
+    <link rel="preload" as="image" href="images/ysky.gif">
+    <link rel="preload" as="image" href="images/rsky.gif">
+    <link rel="preload" as="image" href="images/bsky.gif">
+    <link rel="preload" as="audio" href="audio/webpremonition.ogg">
+
     <style>
         body {font-family: 'Helvetica', sans-serif;}
     </style>
 
     <style>
         body {margin: 0;}
-        .centertext {word-break: break-word; font-size: 0.7em; text-align: center; position: absolute; top: 80%; bottom: 20%; width: 100%; text-shadow: 0em 0em 0.3em #111111; -webkit-text-fill-color: #EEEEEE; -webkit-text-stroke: 0.05em #333333;}
+        .centertext {word-break: break-word; font-size: 0.7em; text-align: center; position: absolute; top: 80%; bottom: 20%; width: 100%; text-shadow: 0em 0em 2em white; color:white}
     </style>
     
     <style>
@@ -30,57 +36,25 @@
         z-index: 3;
         }
     </style>
-
 </head>
 
 <body>
-    
-    <img src="Background Image/blinking.gif" id="cover" onclick="startgame()">
-    
-    <script>
-    var text = "Have you ever felt as if you're not truly awake?";
-    function startgame()
-    {
-    var bgmusic = new Audio('Audio/WebPremonition.ogg');
-    const element = document.getElementById("cover");
-    element.remove();
-    bgmusic.loop = true;
-    bgmusic.play();
-    }
-    </script>
+    <img src="images/cover.gif" id="cover" onclick="startGame()">
 
     <style>
-        body 
+        body
         {
-        background-image: url('Background Image/background.gif');
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
+            background-color: black;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
         }
     </style>
 
-    <script>
-    function linechange()
-    {
-    setTimeout(addNextLetterToTextBox, 200);
-    const line = document.getElementById("textline")
-    var i = 0;
-    line.innerHTML = "";
-    function addNextLetterToTextBox()
-    {
-            if (i < text.length)
-            {
-            line.innerHTML += text[i];
-            i+= 1;
-            setTimeout(addNextLetterToTextBox, 40);
-            }
-    }
-    }
-    </script>
-
-    <div class="centertext" onclick="linechange()">
-    <h1 id="textline" >Have you ever felt like something was off?</h1>
+    <div class="centertext" onclick="updateStartScene()">
+        <h1 id="textline"></h1>
     </div>
 
+    <script src="scripts/script.js"></script>
 </body>
 </html>
